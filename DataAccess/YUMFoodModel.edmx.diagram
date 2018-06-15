@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d14d84fa6e0947998b1c21366e94eb31" Name="Diagram1">
+        <EntityTypeShape EntityType="YUMFoodModel.Allergen" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YUMFoodModel.Dish" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YUMFoodModel.DishRating" Width="1.5" PointX="8.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="YUMFoodModel.DishReview" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="YUMFoodModel.DishType" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YUMFoodModel.OrderItem" Width="1.5" PointX="10.5" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YUMFoodModel.Order" Width="1.5" PointX="5.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="YUMFoodModel.OrderState" Width="1.5" PointX="3" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YUMFoodModel.OrderType" Width="1.5" PointX="3" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="YUMFoodModel.RestaurantMonitor" Width="1.5" PointX="3" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YUMFoodModel.RestaurantRating" Width="1.5" PointX="8.25" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YUMFoodModel.RestaurantReview" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YUMFoodModel.Restaurant" Width="1.5" PointX="0.75" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="YUMFoodModel.ShoppingCart" Width="1.5" PointX="8.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YUMFoodModel.UserProfile" Width="1.5" PointX="3" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YUMFoodModel.User" Width="1.5" PointX="5.25" PointY="22.875" IsExpanded="true" />
+        <AssociationConnector Association="YUMFoodModel.FK__Dishes__DishType__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__Dishes__Restaura__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__DishRatin__DishI__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__DishRevie__DishI__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__OrderItem__DishI__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__ShoppingC__DishI__2BFE89A6" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__DishRatin__UserP__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__DishRevie__UserP__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__OrderItem__Order__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__Orders__OrderSta__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__Orders__OrderTyp__787EE5A0" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__Orders__Restaura__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__Orders__UserProf__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__Restauran__Resta__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__Users__Restauran__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__Restauran__Resta__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__Restauran__UserP__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__Restauran__Resta__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__Restauran__UserP__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__ShoppingC__Resta__2CF2ADDF" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__Users__Restauran__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__ShoppingC__UserP__2B0A656D" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.FK__Users__UserProfi__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.DishesAllergens" ManuallyRouted="false" />
+        <AssociationConnector Association="YUMFoodModel.UserProfilesAllergens" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

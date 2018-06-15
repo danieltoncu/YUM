@@ -30,8 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,11 +49,102 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Allergen.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dish.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DishRating.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DishReview.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DishType.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderItem.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderState.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderType.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Restaurant.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantMonitor.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantRating.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantReview.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCart.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfile.cs">
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YUMFoodModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YUMFoodModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YUMFoodModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YUMFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YUMFoodModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YUMFoodModel.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\" />
     <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="YUMFoodModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>YUMFoodModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="YUMFoodModel.edmx.diagram">
+      <DependentUpon>YUMFoodModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="YUMFoodModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>YUMFoodModel.Context.cs</LastGenOutput>
+      <DependentUpon>YUMFoodModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="YUMFoodModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>YUMFoodModel.edmx</DependentUpon>
+      <LastGenOutput>YUMFoodModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
