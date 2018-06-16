@@ -64,6 +64,10 @@
     <Compile Include="DishType.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Authorization\AuthorizationManager.cs" />
+    <Compile Include="Infrastructure\Authorization\Exceptions\UserNotAuthorizedException.cs" />
+    <Compile Include="Infrastructure\Authorization\Exceptions\UserNotFoundException.cs" />
+    <Compile Include="Infrastructure\Authorization\Exceptions\UserRoleAlreadyExistsException.cs" />
     <Compile Include="Infrastructure\IRepository.cs" />
     <Compile Include="Infrastructure\Repository.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
