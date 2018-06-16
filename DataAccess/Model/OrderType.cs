@@ -7,27 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataAccess
+namespace DataAccess.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Allergen
+    public partial class OrderType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Allergen()
+        public OrderType()
         {
-            this.Dishes = new HashSet<Dish>();
-            this.UserProfiles = new HashSet<UserProfile>();
+            this.Orders = new HashSet<Order>();
         }
     
-        public int AllergenId { get; set; }
+        public int OrderTypeId { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dish> Dishes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserProfile> UserProfiles { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

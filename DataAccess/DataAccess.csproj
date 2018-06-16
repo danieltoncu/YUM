@@ -49,19 +49,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Allergen.cs">
+    <Compile Include="Model\Allergen.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Dish.cs">
+    <Compile Include="Model\Dish.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DishRating.cs">
+    <Compile Include="Model\DishRating.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DishReview.cs">
+    <Compile Include="Model\DishReview.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DishType.cs">
+    <Compile Include="Model\DishType.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Authorization\AuthorizationManager.cs" />
@@ -71,61 +71,59 @@
     <Compile Include="Infrastructure\IRepository.cs" />
     <Compile Include="Infrastructure\Repository.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Order.cs">
+    <Compile Include="Model\Order.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="OrderItem.cs">
+    <Compile Include="Model\OrderItem.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="OrderState.cs">
+    <Compile Include="Model\OrderState.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="OrderType.cs">
+    <Compile Include="Model\OrderType.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Restaurant.cs">
+    <Compile Include="Model\Restaurant.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="RestaurantMonitor.cs">
+    <Compile Include="Model\RestaurantMonitor.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="RestaurantRating.cs">
+    <Compile Include="Model\RestaurantRating.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="RestaurantReview.cs">
+    <Compile Include="Model\RestaurantReview.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ShoppingCart.cs">
+    <Compile Include="Model\ShoppingCart.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
+    <Compile Include="Model\User.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserProfile.cs">
+    <Compile Include="Model\UserProfile.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="YUMFoodModel.Context.cs">
+    <Compile Include="Model\YUMFoodModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>YUMFoodModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="YUMFoodModel.cs">
+    <Compile Include="Model\YUMFoodModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="YUMFoodModel.Designer.cs">
+    <Compile Include="Model\YUMFoodModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>YUMFoodModel.edmx</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="YUMFoodModel.edmx">
+    <EntityDeploy Include="Model\YUMFoodModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>YUMFoodModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
@@ -133,17 +131,17 @@
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
-    <None Include="YUMFoodModel.edmx.diagram">
+    <None Include="Model\YUMFoodModel.edmx.diagram">
       <DependentUpon>YUMFoodModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="YUMFoodModel.Context.tt">
+    <Content Include="Model\YUMFoodModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>YUMFoodModel.Context.cs</LastGenOutput>
       <DependentUpon>YUMFoodModel.edmx</DependentUpon>
     </Content>
-    <Content Include="YUMFoodModel.tt">
+    <Content Include="Model\YUMFoodModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>YUMFoodModel.edmx</DependentUpon>
       <LastGenOutput>YUMFoodModel.cs</LastGenOutput>

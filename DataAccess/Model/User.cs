@@ -7,25 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataAccess
+namespace DataAccess.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class RestaurantMonitor
+    public partial class User
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RestaurantMonitor()
-        {
-            this.Users = new HashSet<User>();
-        }
-    
-        public int RestaurantMonitorId { get; set; }
+        public string UserName { get; set; }
         public System.DateTime CreatedAt { get; set; }
-        public int RestaurantId { get; set; }
+        public Nullable<int> RestaurantId { get; set; }
+        public Nullable<int> RestaurantMonitorId { get; set; }
+        public Nullable<int> UserProfileId { get; set; }
     
+        public virtual RestaurantMonitor RestaurantMonitor { get; set; }
         public virtual Restaurant Restaurant { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
     }
 }

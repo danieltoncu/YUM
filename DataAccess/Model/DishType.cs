@@ -7,25 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataAccess
+namespace DataAccess.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderType
+    public partial class DishType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public OrderType()
+        public DishType()
         {
-            this.Orders = new HashSet<Order>();
+            this.Dishes = new HashSet<Dish>();
         }
     
-        public int OrderTypeId { get; set; }
+        public int DishTypeId { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public string CoverURL { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Dish> Dishes { get; set; }
     }
 }

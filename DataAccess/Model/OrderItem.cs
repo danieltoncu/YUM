@@ -7,20 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataAccess
+namespace DataAccess.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DishReview
+    public partial class OrderItem
     {
-        public int DishReviewId { get; set; }
-        public System.DateTime CreatedAt { get; set; }
-        public string Review { get; set; }
-        public int UserProfileId { get; set; }
+        public int OrderItemId { get; set; }
+        public int OrderId { get; set; }
         public int DishId { get; set; }
+        public int Quantity { get; set; }
     
         public virtual Dish Dish { get; set; }
-        public virtual UserProfile UserProfile { get; set; }
+        public virtual Order Order { get; set; }
     }
 }
