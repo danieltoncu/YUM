@@ -64,6 +64,8 @@
     <Compile Include="DishType.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\IRepository.cs" />
+    <Compile Include="Infrastructure\Repository.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>YUMFoodModel.tt</DependentUpon>
     </Compile>
@@ -115,7 +117,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Infrastructure\" />
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
