@@ -9,9 +9,9 @@ using static DataAccess.Infrastructure.Authorization.AuthorizationManager;
 
 namespace Services.YUMServices.Common
 {
-    public class RolesService : BaseService
+    public class UsersService : BaseService
     {
-        public RolesService() : base()
+        public UsersService() : base()
         {
         }
 
