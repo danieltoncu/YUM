@@ -56,6 +56,7 @@
     <Compile Include="YUMServices\Common\OrderStatesService.cs" />
     <Compile Include="YUMServices\Common\OrderTypesService.cs" />
     <Compile Include="YUMServices\Common\UsersService.cs" />
+    <Compile Include="YUMServices\Exceptions\EntityNotFoundException.cs" />
     <Compile Include="YUMServices\Restaurants\ProfilesService.cs" />
   </ItemGroup>
   <ItemGroup>
