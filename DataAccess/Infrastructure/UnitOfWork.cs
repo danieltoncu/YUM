@@ -16,6 +16,8 @@ namespace DataAccess.Infrastructure
         private IRepository<Restaurant> restaurantRepository;
         private IRepository<RestaurantMonitor> restaurantMonitorRepository;
 
+        private IRepository<Allergen> allergenRepository;
+
         public IRepository<UserProfile> UserProfileRepository
         {
             get
@@ -52,6 +54,19 @@ namespace DataAccess.Infrastructure
                 }
 
                 return this.restaurantMonitorRepository;
+            }
+        }
+
+        public IRepository<Allergen> AllergenRepository
+        {
+            get
+            {
+                if (this.allergenRepository == null)
+                {
+                    this.allergenRepository = new Repository<Allergen>(_context);
+                }
+
+                return this.allergenRepository;
             }
         }
 

@@ -14,7 +14,7 @@ namespace DataAccess.Infrastructure.Authorization
         private readonly DbContext _context;
         private readonly DbSet<User> _dbSet;
 
-        public enum UserRole { CLIENT, RESTAURANT, RESTAURANT_MONITOR };
+        public enum UserRole { CLIENT, RESTAURANT, RESTAURANT_MONITOR, ANY };
 
         public AuthorizationManager(DbContext context)
         {
@@ -44,6 +44,14 @@ namespace DataAccess.Infrastructure.Authorization
             if ((userRole == UserRole.RESTAURANT_MONITOR) && (user.RestaurantMonitorId != null))
             {
                 return user.RestaurantMonitorId;
+            }
+
+            if (userRole == UserRole.ANY)
+            {
+                if ((user.UserProfileId != null) || (user.RestaurantId != null) || (user.RestaurantMonitorId != null))
+                {
+                    return null;
+                }
             }
 
             throw new UserNotAuthorizedException();

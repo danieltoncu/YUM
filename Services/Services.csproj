@@ -51,6 +51,7 @@
     <Compile Include="YUMServices\Base\BaseAuthorizedService.cs" />
     <Compile Include="YUMServices\Base\BaseService.cs" />
     <Compile Include="YUMServices\Clients\ClientProfilesService.cs" />
+    <Compile Include="YUMServices\Common\AllergensService.cs" />
     <Compile Include="YUMServices\Common\UsersService.cs" />
     <Compile Include="YUMServices\Restaurants\RestaurantProfilesService.cs" />
   </ItemGroup>
