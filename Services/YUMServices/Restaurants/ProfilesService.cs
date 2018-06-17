@@ -10,9 +10,9 @@ using static DataAccess.Infrastructure.Authorization.AuthorizationManager;
 
 namespace Services.YUMServices.Restaurants
 {
-    public class RestaurantProfilesService : BaseAuthorizedService
+    public class ProfilesService : BaseAuthorizedService
     {
-        public RestaurantProfilesService(string userName) : base(userName, UserRole.RESTAURANT)
+        public ProfilesService(string userName) : base(userName, UserRole.RESTAURANT)
         {
         }
 
@@ -23,7 +23,10 @@ namespace Services.YUMServices.Restaurants
 
         public void Update(Restaurant restaurant)
         {
+            restaurant.RestaurantId = _id;
+
             _unitOfWork.RestaurantRepository.Update(restaurant);
+
             _unitOfWork.Complete();
         }
     }

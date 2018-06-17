@@ -10,9 +10,9 @@ using static DataAccess.Infrastructure.Authorization.AuthorizationManager;
 
 namespace Services.YUMServices.Clients
 {
-    public class ClientProfilesService : BaseAuthorizedService
+    public class ProfilesService : BaseAuthorizedService
     {
-        public ClientProfilesService(string userName) : base(userName, UserRole.CLIENT)
+        public ProfilesService(string userName) : base(userName, UserRole.CLIENT)
         {
         }
 
@@ -23,7 +23,10 @@ namespace Services.YUMServices.Clients
 
         public void Update(UserProfile userProfile)
         {
+            userProfile.UserProfileId = _id;
+
             _unitOfWork.UserProfileRepository.Update(userProfile);
+
             _unitOfWork.Complete();
         }
     }
