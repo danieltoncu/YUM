@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="YUMServices\Clients\" />
+    <Folder Include="YUMServices\Common\" />
     <Folder Include="YUMServices\RestaurantMonitors\" />
     <Folder Include="YUMServices\Restaurants\" />
   </ItemGroup>

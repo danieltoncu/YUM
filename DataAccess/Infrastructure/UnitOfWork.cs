@@ -12,9 +12,9 @@ namespace DataAccess.Infrastructure
     {
         private readonly DbContext _context;
 
-        public UnitOfWork()
+        public UnitOfWork(DbContext context)
         {
-            _context = new YUMFoodEntities();
+            _context = context;
         }
 
 
