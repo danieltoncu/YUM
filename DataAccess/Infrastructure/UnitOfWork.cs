@@ -17,6 +17,9 @@ namespace DataAccess.Infrastructure
         private IRepository<RestaurantMonitor> restaurantMonitorRepository;
 
         private IRepository<Allergen> allergenRepository;
+        private IRepository<DishType> dishTypeRepository;
+        private IRepository<OrderType> orderTypeRepository;
+        private IRepository<OrderState> orderStateRepository;
 
         public IRepository<UserProfile> UserProfileRepository
         {
@@ -67,6 +70,45 @@ namespace DataAccess.Infrastructure
                 }
 
                 return this.allergenRepository;
+            }
+        }
+
+        public IRepository<DishType> DishTypeRepository
+        {
+            get
+            {
+                if (this.dishTypeRepository == null)
+                {
+                    this.dishTypeRepository = new Repository<DishType>(_context);
+                }
+
+                return this.dishTypeRepository;
+            }
+        }
+
+        public IRepository<OrderType> OrderTypeRepository
+        {
+            get
+            {
+                if (this.orderTypeRepository == null)
+                {
+                    this.orderTypeRepository = new Repository<OrderType>(_context);
+                }
+
+                return this.orderTypeRepository;
+            }
+        }
+
+        public IRepository<OrderState> OrderStateRepository
+        {
+            get
+            {
+                if (this.orderStateRepository == null)
+                {
+                    this.orderStateRepository = new Repository<OrderState>(_context);
+                }
+
+                return this.orderStateRepository;
             }
         }
 
