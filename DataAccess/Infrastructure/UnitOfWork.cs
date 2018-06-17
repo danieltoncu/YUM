@@ -12,6 +12,50 @@ namespace DataAccess.Infrastructure
     {
         private readonly DbContext _context;
 
+        private IRepository<UserProfile> userProfileRepository;
+        private IRepository<Restaurant> restaurantRepository;
+        private IRepository<RestaurantMonitor> restaurantMonitorRepository;
+
+        public IRepository<UserProfile> UserProfileRepository
+        {
+            get
+            {
+                if (this.userProfileRepository == null)
+                {
+                    this.userProfileRepository = new Repository<UserProfile>(_context);
+                }
+
+                return this.userProfileRepository;
+            }
+        }
+
+        public IRepository<Restaurant> RestaurantRepository
+        {
+            get
+            {
+                if (this.restaurantRepository == null)
+                {
+                    this.restaurantRepository = new Repository<Restaurant>(_context);
+                }
+
+                return this.restaurantRepository;
+            }
+        }
+
+        public IRepository<RestaurantMonitor> RestaurantMonitorRepository
+        {
+            get
+            {
+                if (this.restaurantMonitorRepository == null)
+                {
+                    this.restaurantMonitorRepository = new Repository<RestaurantMonitor>(_context);
+                }
+
+                return this.restaurantMonitorRepository;
+            }
+        }
+
+
         public UnitOfWork(DbContext context)
         {
             _context = context;

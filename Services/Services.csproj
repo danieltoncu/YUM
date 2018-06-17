@@ -50,6 +50,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YUMServices\Base\BaseAuthorizedService.cs" />
     <Compile Include="YUMServices\Base\BaseService.cs" />
+    <Compile Include="YUMServices\Common\RolesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
@@ -63,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="YUMServices\Clients\" />
-    <Folder Include="YUMServices\Common\" />
     <Folder Include="YUMServices\RestaurantMonitors\" />
     <Folder Include="YUMServices\Restaurants\" />
   </ItemGroup>
