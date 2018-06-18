@@ -25,6 +25,7 @@ namespace Services.YUMServices.Clients
         public void Update(UserProfile userProfile)
         {
             userProfile.UserProfileId = _id;
+            userProfile.CreatedAt = _unitOfWork.UserProfileRepository.Get(_id).CreatedAt;
 
             _unitOfWork.UserProfileRepository.Update(userProfile);
 

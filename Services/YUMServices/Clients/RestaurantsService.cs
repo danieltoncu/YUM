@@ -25,13 +25,15 @@ namespace Services.YUMServices.Clients
             {
                 if (filterOptions == null)
                 {
-                    filterOptions = new FilterOptions<Restaurant>(null);
+                    filterOptions = new FilterOptions<Restaurant>(r => (r.Country == _userProfile.Country) && (r.City == _userProfile.City));
+
+                    filterOptions.AddOption("open_now", "Deschise Acum",
+                        (r => ((r.Country == _userProfile.Country) && (r.City == _userProfile.City))
+                        && ((r.OpenAt == null) || (r.CloseAt == null) || ((r.OpenAt < DateTime.Now.TimeOfDay) && (r.CloseAt > DateTime.Now.TimeOfDay)))));
+
+                    filterOptions.AddOption("free_delivery", "Livrări Gratis",
+                        (r => ((r.Country == _userProfile.Country) && (r.City == _userProfile.City)) && (r.MinOrderFreeDelivery != null)));
                 }
-
-                filterOptions.AddOption("open_now", "Deschise Acum",
-                    (r => (r.OpenAt == null) || (r.CloseAt == null) || ((r.OpenAt < DateTime.Now.TimeOfDay) && (r.CloseAt > DateTime.Now.TimeOfDay))));
-
-                filterOptions.AddOption("free_delivery", "Livrări Gratis", (r => r.MinOrderFreeDelivery != null));
 
                 return filterOptions;
             }
@@ -44,22 +46,22 @@ namespace Services.YUMServices.Clients
                 if (sortOptions == null)
                 {
                     sortOptions = new SortOptions<Restaurant>(q => q.OrderBy(r => r.Name));
+
+                    sortOptions.AddOption("name_asc", "Nume", (q => q.OrderBy(r => r.Name)));
+
+                    sortOptions.AddOption("newest", "Cele mai noi", (q => q.OrderByDescending(r => r.CreatedAt)));
+
+                    sortOptions.AddOption("popularity", "Cele mai populare", (q => q.OrderByDescending(r => r.Orders.Count)));
+
+                    sortOptions.AddOption("most_rated", "Cele mai apreciate",
+                        (q => q.OrderByDescending(r => r.RestaurantRatings.Count).ThenByDescending(r => r.RestaurantRatings.Average(rr => rr.Rating))));
+
+                    sortOptions.AddOption("most_reviewed", "Cele mai discutate", (q => q.OrderByDescending(r => r.RestaurantReviews.Count)));
+
+                    sortOptions.AddOption("minimum_order", "Comandă minimă", (q => q.OrderBy(r => r.MinOrderFreeDelivery == null).ThenBy(r => r.MinOrderFreeDelivery)));
+
+                    sortOptions.AddOption("delivery_time", "Timp de livrare", (q => q.OrderBy(r => r.DeliveryTime == null).ThenBy(r => r.DeliveryTime)));
                 }
-
-                sortOptions.AddOption("name_asc", "Nume", (q => q.OrderBy(r => r.Name)));
-
-                sortOptions.AddOption("newest", "Cele mai noi", (q => q.OrderByDescending(r => r.CreatedAt)));
-
-                sortOptions.AddOption("popularity", "Cele mai populare", (q => q.OrderByDescending(r => r.Orders.Count)));
-
-                sortOptions.AddOption("most_rated", "Cele mai apreciate",
-                    (q => q.OrderByDescending(r => r.RestaurantRatings.Count).ThenByDescending(r => r.RestaurantRatings.Average(rr => rr.Rating))));
-
-                sortOptions.AddOption("most_reviewed", "Cele mai discutate", (q => q.OrderByDescending(r => r.RestaurantReviews.Count)));
-
-                sortOptions.AddOption("minimum_order", "Comandă minimă", (q => q.OrderBy(r => r.MinOrderFreeDelivery == null).ThenBy(r => r.MinOrderFreeDelivery)));
-
-                sortOptions.AddOption("delivery_time", "Timp de livrare", (q => q.OrderBy(r => r.DeliveryTime == null).ThenBy(r => r.DeliveryTime)));
 
                 return sortOptions;
             }
@@ -70,8 +72,63 @@ namespace Services.YUMServices.Clients
             _userProfile = _unitOfWork.UserProfileRepository.Get(_id);
         }
 
-        public IEnumerable<Restaurant> Get()
+        public IEnumerable<Restaurant> Get(string filterOption = null, string sortOption = null, int pageSize = 20, int pageNumber = 1)
         {
+            if (pageSize < 1)
+            {
+                pageSize = 20;
+            }
+            if (pageNumber < 1)
+            {
+                pageNumber = 1;
+            }
+
+            pageNumber -= 1;
+
+            return _unitOfWork.RestaurantRepository.Get(
+                FilterOptions.GetFilterFunction(filterOption), SortOptions.GetSortFunction(sortOption))
+                .Skip(pageNumber * pageSize).Take(pageSize);
+        }
+
+        public int GetNumberOfPages(string filterOption = null, int pageSize = 20)
+        {
+            if (pageSize < 1)
+            {
+                pageSize = 20;
+            }
+
+            int numberOfRestaurants = _unitOfWork.RestaurantRepository.Get(FilterOptions.GetFilterFunction(filterOption)).Count();
+
+            return (int)Math.Ceiling((double)numberOfRestaurants / pageSize);
+        }
+
+        public IEnumerable<Restaurant> Search(string keywords, int pageSize = 20, int pageNumber = 1)
+        {
+            if (pageSize < 1)
+            {
+                pageSize = 20;
+            }
+            if (pageNumber < 1)
+            {
+                pageNumber = 1;
+            }
+
+            pageNumber -= 1;
+
+            return _unitOfWork.RestaurantRepository.Get(
+                r => ((r.Country == _userProfile.Country) && (r.City == _userProfile.City))
+                && ((r.Name.Contains(keywords)) || (r.Description.Contains(keywords))))
+                .Skip(pageNumber * pageSize).Take(pageSize);
+        }
+
+        public IEnumerable<Option> GetFilterOptions()
+        {
+            return FilterOptions.GetOptions();
+        }
+
+        public IEnumerable<Option> GetSortOptions()
+        {
+            return SortOptions.GetOptions();
         }
 
         public Restaurant Get(int id)
@@ -179,7 +236,7 @@ namespace Services.YUMServices.Clients
             return _unitOfWork.RestaurantReviewRepository.Get(
                 rr => rr.RestaurantId == restaurant.RestaurantId,
                 q => q.OrderByDescending(rr => rr.CreatedAt),
-                "UserProfile.FirstName,UserProfile.LastName");
+                "UserProfile");
         }
     }
 }

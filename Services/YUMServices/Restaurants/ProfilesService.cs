@@ -24,6 +24,7 @@ namespace Services.YUMServices.Restaurants
         public void Update(Restaurant restaurant)
         {
             restaurant.RestaurantId = _id;
+            restaurant.CreatedAt = _unitOfWork.RestaurantRepository.Get(_id).CreatedAt;
 
             _unitOfWork.RestaurantRepository.Update(restaurant);
 
