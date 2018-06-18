@@ -17,6 +17,8 @@ namespace Services.YUMServices.Common
 
         public void RegisterClient(string userName, UserProfile userProfile)
         {
+            userProfile.CreatedAt = DateTime.Now;
+
             _unitOfWork.UserProfileRepository.Add(userProfile);
 
             _authorizationManager.RegisterClientRole(userName, userProfile);
@@ -26,12 +28,16 @@ namespace Services.YUMServices.Common
 
         public void RegisterRestaurant(string userName, Restaurant restaurant)
         {
+            restaurant.CreatedAt = DateTime.Now;
+
             _unitOfWork.RestaurantRepository.Add(restaurant);
 
             RestaurantMonitor restaurantMonitor = new RestaurantMonitor
             {
+                CreatedAt = DateTime.Now,
                 RestaurantId = restaurant.RestaurantId
             };
+
             _unitOfWork.RestaurantMonitorRepository.Add(restaurantMonitor);
 
             _authorizationManager.RegisterRestaurantRole(userName, restaurant, restaurantMonitor);

@@ -21,6 +21,9 @@ namespace DataAccess.Infrastructure
         private IRepository<OrderType> orderTypeRepository;
         private IRepository<OrderState> orderStateRepository;
 
+        private IRepository<RestaurantRating> restaurantRatingRepository;
+        private IRepository<RestaurantReview> restaurantReviewRepository;
+
         public IRepository<UserProfile> UserProfileRepository
         {
             get
@@ -109,6 +112,32 @@ namespace DataAccess.Infrastructure
                 }
 
                 return this.orderStateRepository;
+            }
+        }
+
+        public IRepository<RestaurantRating> RestaurantRatingRepository
+        {
+            get
+            {
+                if (this.restaurantRatingRepository == null)
+                {
+                    this.restaurantRatingRepository = new Repository<RestaurantRating>(_context);
+                }
+
+                return this.restaurantRatingRepository;
+            }
+        }
+
+        public IRepository<RestaurantReview> RestaurantReviewRepository
+        {
+            get
+            {
+                if (this.restaurantReviewRepository == null)
+                {
+                    this.restaurantReviewRepository = new Repository<RestaurantReview>(_context);
+                }
+
+                return this.restaurantReviewRepository;
             }
         }
 
