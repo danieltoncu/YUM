@@ -45,7 +45,7 @@ namespace Services.YUMServices.Common
             _unitOfWork.Complete();
         }
 
-        public List<UserRole> GetUserRoles(string userName)
+        public IEnumerable<UserRole> GetUserRoles(string userName)
         {
             return _authorizationManager.GetUserRoles(userName);
         }

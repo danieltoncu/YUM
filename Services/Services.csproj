@@ -58,6 +58,9 @@
     <Compile Include="YUMServices\Common\OrderTypesService.cs" />
     <Compile Include="YUMServices\Common\UsersService.cs" />
     <Compile Include="YUMServices\Exceptions\EntityNotFoundException.cs" />
+    <Compile Include="YUMServices\Infrastructure\FilterOptions.cs" />
+    <Compile Include="YUMServices\Infrastructure\Option.cs" />
+    <Compile Include="YUMServices\Infrastructure\SortOptions.cs" />
     <Compile Include="YUMServices\Restaurants\ProfilesService.cs" />
   </ItemGroup>
   <ItemGroup>
